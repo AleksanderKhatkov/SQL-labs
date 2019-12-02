@@ -1,2 +1,0 @@
-SELECT*FROM EXAM_MARKS
-WHERE subj_id ='22';
