@@ -46,9 +46,16 @@ EXEC date_exsamen @date1='2019-05-10', @date2='2019-05-17';
 /*4. Для изменения отметки при успешной пересдаче экзамена*/
 drop procedure access_student;
 GO
-CREATE PROCEDURE access_student (@name varchar(20),@surname varchar(20), @fname varchar(20),@mark int, @date1 date, @date2 date)
+CREATE PROCEDURE access_student 
+(@id_Exam INT, 
+@Lecture_hall VARCHAR(10), 
+@Datas DATE, 
+@id_Subject_Teacher VARCHAR(20), 
+@id_Group VARCHAR(10))
 AS
 BEGIN
-insert into access_student (@name, @surname,  @fname, @mark, @date1, @date2) values (@name, @surname,  @fname, @mark, @date1, @date2)
+INSERT INTO Экзамен (id_Экзамен, Адитория, Дата, id_Предмет_Преподаватель, id_Группа) values
+ (@id_Exam, @Lecture_hall, @Datas, @id_Subject_Teacher, @id_Group)
 END
-EXEC access_student @name='Александр', @surname='Александрович', @fname ='Саньков', @mark =10, @date1 ='2019-05-10', @date2 ='2019-05-17'; 
+
+EXEC access_student @id_Exam = 1, @Lecture_hall='200f',  @Datas='2019-06-17', @id_Subject_Teacher=5, @id_Group ='6';
