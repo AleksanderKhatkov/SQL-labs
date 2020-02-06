@@ -1,4 +1,4 @@
-											/*Ëàáîðàòîðíàÿ ðàáîòà N11*/
+						/*ЛАБА № N11*/
 
 --1.Перечень адресов трёхкомнатных квартир, предлагаемых для продажи в Полоцке.
 Select*from Property Where City='Полоцк';
@@ -75,7 +75,7 @@ drop table Buyer_new
 select*from  Buyer_new
 
 /*16.Снизить цену в 2 раза на те объекты собственности, у которых поле Comments таблицы VIEWING содержит значение 'требует ремонта'.*/
-update property set Selling_Price = Selling_Price/2 where Property_no in (select Property_no from Viewing where Comments = 'òðåáóåò ðåìîíòà')
+update property set Selling_Price = Selling_Price/2 where Property_no in (select Property_no from Viewing where Comments = 'требует ремонта')
 /*17.Создать сгруппированный по отделениям и упорядоченный по алфавиту список сотрудников, поступивших на работу более трех лет назад.*/
 select*from (select * from Staff where DATEDIFF(year,datetime_Joined,getdate()) > 3) a order by a.Branch_no, a.LName;
 /*18.Найти среднюю заработную плату сотрудников в каждом из отделений.*/
